@@ -22,6 +22,7 @@ class PostTransformer
             'uuid' => self::toItemUUID($postId, $postData),
             'metadata' => [
                 'name' => $postData['post_name'],
+                'title' => $postData['post_title'],
                 'author' => $postData['post_author'],
                 'guid' => $postData['guid'],
             ],

@@ -29,8 +29,20 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-	$.getScript('https://cdn.jsdelivr.net/npm/apisearch-ui/dist/apisearch-ui.min.js', function() {
-		const ui = apisearchUI({
+    /**
+	 * Result list template string
+     * @type {string}
+     */
+	var resultTemplate = '<ul class="apisearch-results-list">{{#items}} ' +
+			'<li class="apisearch-results-list-item">' +
+				'{{#highlights.title}}<a href="{{metadata.guid}}">{{{highlights.title}}}</a>{{/highlights.title}}' +
+				'{{^highlights.title}}<a href="{{metadata.guid}}">{{metadata.title}}</a>{{/highlights.title}}' +
+			'</li>' +
+		'{{/items}}</ul>'
+	;
+
+	$.getScript('https://cdn.jsdelivr.net/npm/apisearch-ui@0.1.22/dist/apisearch-ui.min.js', function() {
+		var ui = apisearchUI({
 			appId: php_vars.app_id,
 			indexId: php_vars.index_id,
 			token: php_vars.admin_token,
@@ -39,18 +51,35 @@
 			}
 		});
 
-		// Append widgets
+        $('.search-form').append('<div class="apisearch-results" hidden></div>');
+
+        // Append widgets
 		ui.addWidgets(
 			ui.widgets.simpleSearch({
-				target: '#search-2'
+				target: 'input.search-field'
 			}),
 			ui.widgets.result({
-				target: '#recent-posts-2',
+				target: '.apisearch-results',
+                highlightsEnabled: true,
 				template: {
-					itemsList: '<ul>{{#items}} <li>{{metadata.name}}</li> {{/items}}</ul>',
+					itemsList: resultTemplate
 				}
 			})
 		);
+
+		ui.store.on('render', function() {
+			if (this.dirty) {
+				return;
+			}
+
+			if (this.data.total_hits > 0) {
+				$('.apisearch-results').show();
+			}
+
+            if (this.data.query.q === '') {
+                $('.apisearch-results').hide();
+			}
+		});
 
 		// Initialize it
 		ui.init();
