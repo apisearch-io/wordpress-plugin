@@ -41,7 +41,7 @@
 		'{{/items}}</ul>'
 	;
 
-	$.getScript('https://cdn.jsdelivr.net/npm/apisearch-ui@0.1.22/dist/apisearch-ui.min.js', function() {
+	$.getScript('https://cdn.jsdelivr.net/npm/apisearch-ui@0.1.23/dist/apisearch-ui.min.js', function() {
 		var ui = apisearchUI({
 			appId: php_vars.app_id,
 			indexId: php_vars.index_id,
