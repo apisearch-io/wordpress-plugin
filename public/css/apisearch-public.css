@@ -2,3 +2,40 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+.apisearch-results {
+    display: block;
+    background: white;
+    position: absolute;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+}
+.apisearch-results .apisearch-results-list {
+    margin: 0;
+}
+.apisearch-results .apisearch-results-list .apisearch-results-list-item {
+    border: none;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0;
+}
+.apisearch-results .apisearch-results-list .apisearch-results-list-item > a {
+    display: block;
+    width: 100%;
+    padding: 0 .7rem;
+    height: inherit;
+    line-height: inherit;
+}
+.apisearch-results .apisearch-results-list .apisearch-results-list-item > a:hover {
+    background: #f8f8f8;
+    text-transform: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.apisearch-results .apisearch-results-list .apisearch-results-list-item > a > em {
+    background: #f4f4ff;
+    padding: .2rem .3rem;
+    font-weight: 600;
+}
