@@ -37,6 +37,7 @@
 		autocomplete({
             inputTarget: '.widget-area .widget_search .search-field',
             poweredBy: true,
+            itemsPerResult: 8,
             datasets: [{
 				type: 'post',
 				template: {
