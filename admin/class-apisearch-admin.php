@@ -66,7 +66,7 @@ class Apisearch_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
         $this->stored_options = get_option($this->plugin_name);
-        $this->apisearchClient = new ApisearchClient('http://localhost:8999', 'v1');
+        $this->apisearchClient = new ApisearchClient('https://apisearch.global.ssl.fastly.net', 'v1');
         if ($this->checkStoredConfig()) {
             $this->apisearchClient->setCredentials(
                 $this->stored_options['app_id'],

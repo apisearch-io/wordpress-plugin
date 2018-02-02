@@ -57,7 +57,7 @@ class ApisearchAdminSettings
         $location
     )
     {
-        $temporalApisearchClient = new ApisearchClient('http://localhost:8999', 'v1');
+        $temporalApisearchClient = new ApisearchClient('https://apisearch.global.ssl.fastly.net', 'v1');
         $temporalApisearchClient->setCredentials(
             $config['app_id'],
             $config['index_id'],

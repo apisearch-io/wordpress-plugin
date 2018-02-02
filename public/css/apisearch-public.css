@@ -2,7 +2,7 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
-.apisearch-results {
+.as-result {
     display: block;
     background: white;
     position: absolute;
@@ -11,31 +11,88 @@
     border-radius: 3px;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
 }
-.apisearch-results .apisearch-results-list {
+
+/*
+ * Dataset
+ */
+.as-result > .as-result__dataset {
     margin: 0;
 }
-.apisearch-results .apisearch-results-list .apisearch-results-list-item {
+.as-result > .as-result__dataset > .as-result__datasetItemsList {
+    list-style: none;
+}
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem {
     border: none;
     height: 3rem;
     line-height: 3rem;
     padding: 0;
+    margin-bottom: .2rem
 }
-.apisearch-results .apisearch-results-list .apisearch-results-list-item > a {
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem:first-child {
+    margin-top: .2rem
+}
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a {
     display: block;
     width: 100%;
-    padding: 0 .7rem;
+    padding: 0 .5rem;
     height: inherit;
     line-height: inherit;
+    font-weight: 500;
 }
-.apisearch-results .apisearch-results-list .apisearch-results-list-item > a:hover {
-    background: #f8f8f8;
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a > .as-result__datasetItemTitle,
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a > .as-result__datasetItemContent {
+    display: block;
+    max-width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a > .as-result__datasetItemTitle {
+    display: block;
+    height: 1.5rem;
+    line-height: 1.9rem;
+    font-size: .9rem;
+}
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a > .as-result__datasetItemContent {
+    height: 1.5rem;
+    line-height: 1.1rem;
+    font-size: .7rem;
+    color: #5f5f5f;
+}
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem--active,
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a:hover,
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a:focus {
+    background: #f6f6f6;
     text-transform: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
 }
-.apisearch-results .apisearch-results-list .apisearch-results-list-item > a > em {
-    background: #f4f4ff;
-    padding: .2rem .3rem;
+.as-result > .as-result__dataset > .as-result__datasetItemsList > .as-result__datasetItem > a em {
+    background: rgba(3, 169, 244, 0.16);
+    padding: 0 .2rem;
     font-weight: 600;
+    font-style: initial;
+    color: black;
+    box-shadow: 0 1px 0 rgba(3, 169, 244, 0.84);
+}
+
+/*
+ * Powered by
+ */
+.as-result > .as-poweredBy {
+    padding: .3rem .5rem 0;
+    text-align: right;
+    display: block;
+    border-top: 1px solid #e4e4e4;
+}
+.as-result > .as-poweredBy > a {
+    text-decoration: none;
+}
+.as-result > .as-poweredBy > a,
+.as-result > .as-poweredBy > a:hover,
+.as-result > .as-poweredBy > a > img {
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
 }

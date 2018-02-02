@@ -11,11 +11,9 @@
 				dataType: "json",
 				success: function(data){
 					$button.attr('disabled', false);
-					var notice = `
-						<div class="notice notice-success is-dismissible">
-                        	<p>`+data.data+`</p>
-                    	</div>
-					`;
+					var notice = '<div class="notice notice-success is-dismissible">' +
+						'<p>' + data.data + '</p>' +
+					'</div>';
 
 					$button
 						.parents('.wrap').first()
